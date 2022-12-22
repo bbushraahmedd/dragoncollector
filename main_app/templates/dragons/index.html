@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1 class="px-3 py-3">All Dragons</h1>
+    <hr>
+<div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for dragon in dragons  %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h4 class="card-title">{{ dragon.name }}</h4>
+              <div class="d-flex justify-content-between align-items-center">
+                {% if dragon.age > 0 %}
+                    <h6 class="card-subtitle mb-2 text-muted">Age: {{ dragon.age }}</h6>
+                {% else %}
+                    <h6 class="card-subtitle mb-2 text-muted">Age: Hatchling</h6>
+                {% endif %}
+              </div>
+              <p class="card-text">Description: {{ dragon.description }}</p>
+              <a href="{% url 'detail' dragon.id %}" class="card-link text-muted">View Details</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+    </div>
+  </div>
+
+  {% endblock content %}
