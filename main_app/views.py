@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Dragon
 
 # Create your views here.
@@ -17,3 +18,15 @@ def dragons_index(request):
 def dragons_detail(request, dragon_id):
   dragon = Dragon.objects.get(id=dragon_id)
   return render(request, 'dragons/detail.html', {'dragon': dragon})
+
+class DragonCreate(CreateView):
+    model = Dragon
+    fields = '__all__'
+
+class DragonUpdate(UpdateView):
+    model = Dragon
+    fields = ['color', 'description']
+
+class DragonDelete(DeleteView):
+    model = Dragon
+    success_url = '/dragons/'

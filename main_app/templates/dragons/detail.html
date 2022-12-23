@@ -15,25 +15,12 @@
         <h6 class="card-subtitle mb-2 text-muted">Age: Hatchling</h6>
     {% endif %}</small></p>
     </div>
+    <div>
+      <a href=" {% url 'dragons_update' dragon.id%}" class="card-link text-muted mx-3">Edit</a>
+      <a href=" {% url 'dragons_delete' dragon.id%}" class="card-link text-muted mx-3">Delete</a>
+    </div>
     </div>
 
 
 {% endblock %}
     
-    
-      
-    <!-- {% for dragon in dragons  %}
-    <div class="card mb-3">
-          <div class="card-body">
-            <h4 class="card-title">{{ dragon.name }}</h4>
-            <div class="d-flex justify-content-between align-items-center">
-              {% if dragon.age > 0 %}
-                  <h6 class="card-subtitle mb-2 text-muted">Age: {{ dragon.age }}</h6>
-              {% else %}
-                  <h6 class="card-subtitle mb-2 text-muted">Age: Hatchling</h6>
-              {% endif %}
-            </div>
-            <p class="card-text">Description: {{ dragon.description }}</p>
-          </div>
-      </div>
-    {% endfor %} -->
