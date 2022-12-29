@@ -4,7 +4,7 @@
   <h1 class="px-3 py-3">Dragon Details</h1>
   <hr>
 
-  <div class="card mb-3">
+  <div class="card w-75 mb-3 p-3">
     <div class="card-body">
       <h3 class="card-title">{{ dragon.name }}</h3>
       <p class="card-text">Description: {{ dragon.description }}</p>
@@ -19,7 +19,9 @@
       <a href=" {% url 'dragons_update' dragon.id%}" class="card-link text-muted mx-3">Edit</a>
       <a href=" {% url 'dragons_delete' dragon.id%}" class="card-link text-muted mx-3">Delete</a>
     </div>
-    </div>
+  </div>
+
+  
 
 
 {% endblock %}
