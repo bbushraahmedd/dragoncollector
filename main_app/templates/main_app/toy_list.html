@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>All Toys</h1>
+<hr>
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for toy in toy_list  %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h4 class="card-title">{{ toy.name }}</h4>
+              <p class="card-text">Color: {{ toy.color }}</p>
+              <a href="{% url 'toys_detail' toy.id %}" class="card-link text-muted">View Details</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+    </div>
+  </div>
+
+
+{% endblock %}
